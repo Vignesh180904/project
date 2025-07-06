@@ -1,0 +1,30 @@
+<head>
+    <title>Soil Suggestion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/theme-toggle.js') }}"></script>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h2>Soil Analysis Form</h2>
+        <form method="post">
+            <label>Plant Name:</label><input type="text" name="plant" required><br>
+            <label>Nitrogen (N):</label><input type="number" step="any" name="nitrogen"><br>
+            <label>Phosphorus (P):</label><input type="number" step="any" name="phosphorus"><br>
+            <label>Potassium (K):</label><input type="number" step="any" name="potassium"><br>
+            <label>Temperature (°C):</label><input type="number" step="any" name="temperature"><br>
+            <label>Humidity (%):</label><input type="number" step="any" name="humidity"><br>
+            <label>pH Level:</label><input type="number" step="any" name="ph"><br>
+            <input type="submit" value="Analyze Soil">
+        </form>
+        {% if viability %}
+            <h3>Viability for {{ plant }}: {{ viability }}%</h3>
+            <ul>
+                {% for rec in recommendations %}
+                <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

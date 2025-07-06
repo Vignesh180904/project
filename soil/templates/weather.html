@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgriGrow - Weather Forecast</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>AgriGrow - Weather Forecast</h1>
+    <form method="POST">
+        <input type="text" name="location" placeholder="Enter Location" required>
+        <button type="submit">Get Forecast</button>
+    </form>
+
+      {% if forecast %}
+            <h2>Forecast for {{ location }}</h2>
+            <div class="forecast-cards">
+                {% for day in forecast %}
+                    <div class="card">
+                        <h3>{{ day.date }}</h3>
+                        <p>Rainfall: <strong>{{ day.rainfall }}</strong></p>
+                        <p>Temperature: <strong>{{ day.temperature }}</strong></p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    <a href="/">← Back to Soil Analysis</a>
+</body>
+</html>
