@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaf Disease Prediction | AgriGrow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h2>🌿 Leaf Disease Detection</h2>
+        <p>Upload an image of a plant leaf to detect potential diseases and get treatment tips.</p>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <label for="image">Select Leaf Image:</label><br>
+            <input type="file" name="image" accept="image/*" required><br><br>
+            <button type="submit">Predict Disease</button>
+        </form>
+
+        {% if disease %}
+            <div class="result-section">
+                <h3>🩺 Prediction Result</h3>
+                <p><strong>Disease:</strong> {{ disease }}</p>
+                <p><strong>Confidence:</strong> {{ confidence }}%</p>
+                <p><strong>Suggested Tip:</strong> {{ tip }}</p>
+                <br>
+                <img src="{{ image_url }}" alt="Uploaded Leaf" style="max-width: 300px; border-radius: 10px;">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

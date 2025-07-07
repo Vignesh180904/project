@@ -1,14 +1,14 @@
 :root {
-    --background-color: #1e1e2f; 
+    --background-color: linear-gradient(135deg, #1e1e2f 0%, #2c2f3f 100%); 
     --text-color: #ffffff; 
     --link-color: #4fc3f7; 
     --navbar-bg: #2c2f3f; 
     --card-bg: #2a2d3e; 
-    --form-bg: #3a3d4a; 
+    --form-bg: rgba(58, 61, 74, 0.9); 
     --form-border: #4fc3f7; 
     --button-bg: linear-gradient(90deg, #66bb6a 0%, #a5d6a7 100%); 
     --button-hover-bg: linear-gradient(90deg, #57a052 0%, #8bc34a 100%); 
-    --interactive-color-1: #481647; 
+    --interactive-color-1: #ad29aa; 
     --interactive-color-2: #1d526b; 
     --interactive-color-3: #ffeb3b; 
 }
@@ -141,6 +141,7 @@ input[type="number"]:focus {
     outline: none;
     border-color: var(--interactive-color-1);
     background: #ffffff;
+    color: #000; /* Change text color to black for better visibility */
     box-shadow: 0 0 10px rgba(127, 176, 105, 0.3);
     transform: translateY(-2px);
 }
