@@ -8,7 +8,7 @@ def analyze_soil(data):
         data["N"], data["P"], data["K"],
         data["temperature"], data["humidity"], data["ph"]
     ]])
-    viability = int(model.predict(features)[0])  # Now safe, returns numeric
+    viability = int(model.predict(features)[0])  
 
     recs = []
     if data["N"] < 50:

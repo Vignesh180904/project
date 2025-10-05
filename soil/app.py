@@ -3,8 +3,6 @@ import numpy as np
 from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-
-# Import your custom modules
 from soil_analysis import analyze_soil
 from crop_recommendation import recommend_crop
 from weather_forecast import get_weather_forecast
@@ -17,16 +15,9 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 model = load_model('model/leaf_disease_model.h5')
 class_labels = ['Tomato___Bacterial_spot', 'Tomato___Early_blight', 'Tomato___healthy']
 
-# ---------------------------
-# ROUTE: Home Page
-# ---------------------------
 @app.route("/")
 def home():
     return render_template("home.html")
-
-# ---------------------------
-# ROUTE: Leaf Disease Detection
-# ---------------------------
 @app.route('/index', methods=['GET', 'POST'])
 def leaf_disease():
     if request.method == 'POST':
